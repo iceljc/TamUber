@@ -11,16 +11,20 @@ When(/^I go to the homepage$/) do
   visit root_path
 end
 
+When(/^I am on the homepage$/) do
+  visit root_path
+end
+
 Then(/^I should see the welcome message$/) do
   expect(page).to have_content("Welcome to TamUber Driver Safety Interface")
 end
 
-When(/^I click the 'sign up now'$/) do 
-  visit signup_path
+When(/^I click the 'Sign in!'$/) do 
+  visit login_path
 end
   
 Then(/^I should see the Signup page$/) do
-  expect(page).to have_content("Sign up")
+  expect(page).to have_content("Log in")
 end
 
 When(/^I am a new, authenticated user$/) do

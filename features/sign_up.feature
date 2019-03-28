@@ -9,19 +9,19 @@ Then I should see the welcome message
 
   
 Scenario: Signup with Valid Credentials
-Given I go to the homepage
-When I click the 'sign up now'
+Given I am on the homepage
+When I click the 'Sign in!'
 Then I should see the Signup page
-When I am a new, authenticated user
+# When I am a new, authenticated user
 # When I fill in "firstname" with "wenjie"
 # And I fill in "lastname" with "zhang"
 # And I fill in "email" with "test@test.com"
 # And I fill in "password" with "test123pass"
 # And I fill in "password_confirmation" with "test123pass"
 
-Scenario: Signin with Valid Credentials
-Given I go to the homepage
-When I enter the username and password
+# Scenario: Signin with Valid Credentials
+# Given I go to the homepage
+# When I enter the username and password
 
 
 
