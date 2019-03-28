@@ -124,8 +124,7 @@
   
 
   <div class="top" align="center">
-
-  <!--<a class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/?unit=us" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="ruby" >COLLEGE STATION WEATHER</a>-->
+      <!--<a class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/?unit=us" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="ruby" >COLLEGE STATION WEATHER</a>-->
     <div id="weather" class="left">
       <h2> Weather Data for College Station </h2>
       <a class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/?unit=us" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="ruby" >COLLEGE STATION WEATHER</a>
@@ -135,8 +134,8 @@
       <!--<table id="weather_results"></table>-->
     </div>
     
-    <div>
-      <h2 id="dash"> Dashboard</h2>
+    <div id="dash" class="right">
+      <h2> Dashboard</h2>
       <table class="table table-striped" id="dashboard">
         <tr>
           <td> Tire Pressure</td>
@@ -152,6 +151,31 @@
         </tr>
       </table>
     </div>
+    
+    <div class="top" align="center">
+      <hr class="left">
+        <div>
+          <div class="col-md-12">
+            <form id="contactform" role="form" action="#" method="POST">
+              <div class="form-group">
+                <h2>Emergency Call</h2>
+          </div>
+            <label>Your number</label>
+          <div class="form-group">
+                 <input class="form-control" type="text" name="userPhone" id="userPhone"
+                        placeholder="(651) 555-7889">
+          </div>
+             <label>Emergency number</label>
+          <div class="form-group">
+                 <input class="form-control" type="text" name="salesPhone" id="salesPhone"
+                        placeholder="(651) 555-7889">
+          </div>
+            <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
+            </form>
+          </div>
+      </div>
+	  </div><!-- /page -->
+	
   </div>
 
 
@@ -183,31 +207,7 @@
       </table>
     </div>
 
-  <div class="top" align="center">
-    <hr class="left">
-      <div>
-        <div class="col-md-12">
-          <form id="contactform" role="form" action="#" method="POST">
-            <div class="form-group">
-              <h2>Emergency Call</h2>
-            </div>
-            <label>Your number</label>
-             <div class="form-group">
-                 <input class="form-control" type="text" name="userPhone" id="userPhone"
-                        placeholder="(651) 555-7889">
-             </div>
-             <label>Emergency number</label>
-             <div class="form-group">
-                 <input class="form-control" type="text" name="salesPhone" id="salesPhone"
-                        placeholder="(651) 555-7889">
-             </div>
-            <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
-          </form>
-        </div>
-      </div>
-
-	</div><!-- /page -->
-	
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
   jQuery(document).ready(function(){
