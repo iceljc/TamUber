@@ -15,16 +15,28 @@ When(/^I am on the homepage$/) do
   visit root_path
 end
 
+When(/^I am on the checklist page$/) do
+  visit checklist_path
+end
+
+When(/^I should be on the checklist page$/) do
+  visit checklist_path
+end
+
 Then(/^I should see the welcome message$/) do
-  expect(page).to have_content("Welcome to TamUber Driver Safety Interface")
+  expect(page).to have_content("Welcome to TamUber")
 end
 
 When(/^I click the 'Sign in!'$/) do 
   visit login_path
 end
   
-Then(/^I should see the Signup page$/) do
+Then(/^I should be on the Login page$/) do
   expect(page).to have_content("Log in")
+end
+
+Then(/^I should be on the Signup page$/) do
+  visit signup_path
 end
 
 When(/^I am a new, authenticated user$/) do
@@ -39,7 +51,40 @@ end
 When(/^I enter the username and password$/) do 
 end 
 
+When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
+end
 
+When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
+  fill_in(field, :with => value)
+end
+
+When /^(?:|I )follow "([^"]*)"$/ do |link|
+  click_link(link)
+end
+
+When /^(?:|I )press "([^"]*)"$/ do |button|
+  click_button(button)
+end
+
+
+Then /^(?:|I )should see "([^"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_content(text)
+  else
+    assert page.has_content?(text)
+  end
+end
+
+Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
+  regexp = Regexp.new(regexp)
+
+  if page.respond_to? :should
+    page.should have_xpath('//*', :text => regexp)
+  else
+    assert page.has_xpath?('//*', :text => regexp)
+  end
+end
 
 
   # visit '/users/sign_in'

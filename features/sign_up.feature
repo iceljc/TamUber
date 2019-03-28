@@ -4,27 +4,49 @@ I want our users to be greeted when they visit our site
 So that they have a better experience
 
 Scenario: User sees the welcome message
-When I go to the homepage
-Then I should see the welcome message
+  When I go to the homepage
+  Then I should see the welcome message
+
+Scenario: Signup with Valid Credentials
+  Given I am on the homepage
+  When I follow "Sign in!"
+  Then I should see "Sign up now"
+  And I follow "Sign up now!"
+  And I should be on the Signup page
+  And I fill in "Firstname" with "wenjie"
+  And I fill in "Lastname" with "zhang"
+  And I fill in "Email" with "test@test.com"
+  And I fill in "Password" with "test123pass"
+  And I fill in "Confirmation" with "test123pass"
+  Then I press "Create my account"
+  And I should be on the checklist page
+  And I should see "This is a Checklist for the Car"
 
   
-Scenario: Signup with Valid Credentials
-Given I am on the homepage
-When I click the 'Sign in!'
-Then I should see the Signup page
-# When I am a new, authenticated user
-# When I fill in "firstname" with "wenjie"
-# And I fill in "lastname" with "zhang"
-# And I fill in "email" with "test@test.com"
-# And I fill in "password" with "test123pass"
-# And I fill in "password_confirmation" with "test123pass"
-
-# Scenario: Signin with Valid Credentials
-# Given I go to the homepage
-# When I enter the username and password
+Scenario: Signin with Valid Credentials
+  Given I am on the homepage
+  When I follow "Sign in!"
+  Then I should be on the Login page
+  And I fill in "Email" with "test@test.com"
+  And I fill in "Password" with "test123pass"
+  And I press "Log in"
+  Then I should be on the checklist page
 
 
+Scenario: Signin with inValid Credentials
+  Given I am on the homepage
+  When I follow "Sign in!"
+  Then I should be on the Login page
+  And I fill in "Email" with "test@test.com"
+  And I fill in "Password" with "test456pass"
+  Then I press "Log in"
+  And I should see "Invalid email"
 
+
+
+# When I fill in "Firstname" with "wenjie"
+# And I fill in "Lastname" with "zhang"
+# And I fill in "Password_confirmation" with "test123pass"
 
 
 # Scenario: login with valid credentials
