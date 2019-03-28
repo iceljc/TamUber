@@ -15,9 +15,9 @@ When(/^I am on the homepage$/) do
   visit root_path
 end
 
-When(/^I am on the checklist page$/) do
-  visit checklist_path
-end
+# When(/^I am on the checklist page$/) do
+#   visit checklist_path
+# end
 
 When(/^I should be on the checklist page$/) do
   visit checklist_path
