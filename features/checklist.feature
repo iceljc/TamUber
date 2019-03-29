@@ -10,8 +10,10 @@ Scenario: User does not check all the items on the list
 
 Scenario: User check items on the checklist page
   When I am on the checklist page
-  Then I should have Tire Pressure
+  And I should have Tire Pressure
   Then I check everything on the list
+  And I should not have Tire Pressure
   And I click Continue
-  And I should not see "Tire Pressure"
+  # And I press "Coninue"
+  And I should be on the user page
 

@@ -9,18 +9,18 @@ When /^I check everything on the list$/ do
   first(:css, 'i.fas.fa-check').click
 end
 
-Then /^I should have Tire Pressure$/ do |text|
-  expect(page).to have_selector('i#tire-pressure', visible:false)
+Then /^I should have Tire Pressure$/ do
+  expect(page).to have_selector('i#tire-pressure', visible: true)
 end
 
-Then /^I click continue$/ do
+Then /^I click Continue$/ do
   find(:css, 'a.btn.btn-primary.disable').click
 end
 
-# Then /^(?:|I )should not see Tire Pressure$/ do |text|
-#   if page.respond_to? :should
-#     page.should have_no_content(text)
-#   else
-#     assert page.has_no_content?(text)
-#   end
-# end
+Then /^I should not have Tire Pressure$/ do
+    expect(page).to have_selector('i#tire-pressure', visible: false)
+end
+
+Then /^I should be on the user page$/ do
+    '/users'
+end
