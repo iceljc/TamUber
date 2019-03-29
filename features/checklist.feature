@@ -12,6 +12,6 @@ Scenario: User check items on the checklist page
   When I am on the checklist page
   Then I should have Tire Pressure
   Then I check everything on the list
-  And I follow "Continue"
+  And I click Continue
   And I should not see "Tire Pressure"
 
