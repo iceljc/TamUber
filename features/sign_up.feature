@@ -1,4 +1,4 @@
-Feature: see the welcome page, sign up and sign in
+Feature: See the welcome page, sign up and sign in
 As a product manager
 I want our users to be greeted when they visit our site
 So that they have a better experience

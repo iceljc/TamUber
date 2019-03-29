@@ -87,14 +87,21 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
 end
 
 
-  # visit '/users/sign_in'
-  # fill_in "user_email", :with => email
-  # fill_in "user_password", :with => password
-  # click_button "Sign in"
-# And I fill in "lastname" with "zhang"
-# And I fill in "email" with "test@test.com"
-# And I fill in "password" with "test123pass"
-# And I fill in "password_confirmation" with "test123pass"
-# And I press "Create my account"
-# Then I should see the welcome message
+Then /^(?:|I )should not see "([^"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_no_content(text)
+  else
+    assert page.has_no_content?(text)
+  end
+end
+
+Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
+  regexp = Regexp.new(regexp)
+
+  if page.respond_to? :should
+    page.should have_no_xpath('//*', :text => regexp)
+  else
+    assert page.has_no_xpath?('//*', :text => regexp)
+  end
+end
 
