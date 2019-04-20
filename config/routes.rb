@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # TO DO set the heroku url below
-  default_url_options :host => 'https:///ljcuber.herokuapp.com/'
+  default_url_options :host => 'static_pages#home'
   get 'password_resets/new'
   get 'password_resets/edit'
   root   'static_pages#home'
