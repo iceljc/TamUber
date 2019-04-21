@@ -14,13 +14,13 @@ Then /^I should have Tire Pressure$/ do
 end
 
 Then /^I click Continue$/ do
-  find(:css, 'a.btn.btn-primary.disable').click
+  find(:css, 'a.btn.btn-primary').click
 end
 
 Then /^I should not have Tire Pressure$/ do
     expect(page).to have_selector('i#tire-pressure', visible: false)
 end
 
-Then /^I should be on the user page$/ do
-    '/users'
+Then /^I should be on the User page$/ do
+    '/users/1'
 end
