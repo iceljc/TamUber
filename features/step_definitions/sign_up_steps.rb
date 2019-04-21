@@ -19,6 +19,10 @@ end
 #   visit checklist_path
 # end
 
+When(/^I am on the Signin page$/) do
+  visit login_path
+end
+
 When(/^I should be on the checklist page$/) do
   visit checklist_path
 end
@@ -30,13 +34,43 @@ end
 When(/^I click the 'Sign in!'$/) do 
   visit login_path
 end
+
+When(/^I should be on the Password Reset page$/) do
+    '/password_resets/new'
+end
+
+When(/^I am on the Password Reset page$/) do
+    '/password_resets/new'
+end
   
 Then(/^I should be on the Login page$/) do
   expect(page).to have_content("Log in")
 end
 
+Then(/^I should be on the Home page$/) do
+  visit root_path
+end
+
 Then(/^I should be on the Signup page$/) do
   visit signup_path
+end
+
+Then(/^I should be on the Help page$/) do
+  '/help'
+end
+
+Then(/^I am on the Signup page$/) do
+  visit signup_path
+end
+
+Given /^the account is set up$/ do
+  # Blog.default.update_attributes!({:blog_name => 'Teh Blag',
+  #                                 :base_url => 'http://localhost:3000'});
+  # Blog.default.save!
+  User.create!({:firstname => 'aaa',
+                :lastname => 'bbb',
+                :email => 'aaa@bbb.com',
+                :password => '123456'})
 end
 
 When(/^I am a new, authenticated user$/) do
@@ -48,8 +82,6 @@ When(/^I am a new, authenticated user$/) do
   User.new(:firstname => firstname, :lastname => lastname, :email => email, :password => password, :password_confirmation => password).save!
 end
 
-When(/^I enter the username and password$/) do 
-end 
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
