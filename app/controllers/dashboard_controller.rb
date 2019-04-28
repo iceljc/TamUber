@@ -2,6 +2,6 @@ class DashboardController < ApplicationController
 
   def show_stats
     # @vehicle_stats =  VehicleStatus.first()
-    @vehicle_stats = {"tire_pressure" => 111, "battery_level" => 222, "lidar_status" => 123}
+    @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
   end
 end
