@@ -6,18 +6,24 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # @vehicle_stats =  VehicleStatus.first()
-    # source = "http://47.218.218.78:8080/car_info.json"
-    # rsp = Net::HTTP.get_response(URI.parse(source))
-    # data = JSON.parse(rsp.body)
+    source = "http://47.218.218.78:8080/car_info.json"
+    rsp = Net::HTTP.get_response(URI.parse(source))
+    data = JSON.parse(rsp.body)
     
-    # if data['lidar status'] == 1
-    #   lidar_status = 'Online'
-    # else
-    #   lidar_status = 'Offline'
-    # end
+    data.each do |key, value|
+      if value.is_a?(Integer)
+        value = value.to_s
+      end
+    end
+      
     
-    # @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => lidar_status}
-    @vehicle_stats = {:tire_pressure => 123, :battery_level => "70%", :lidar_status => "Ok"}
+    if data['lidar status'] == 1
+      lidar_status = 'Online'
+    else
+      lidar_status = 'Offline'
+    end
+    
+    @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => lidar_status}
     return @user, @vehicle_stats
   end
 
