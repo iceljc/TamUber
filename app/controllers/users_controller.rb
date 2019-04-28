@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     data = JSON.parse(rsp.body)
     
     if data['lidar status'] == 1
-      lidar_status = 'Online'
+      @lidar_status = 'Online'
     else
-      lidar_status = 'Offline'
+      @lidar_status = 'Offline'
     end
     
     @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => lidar_status}
