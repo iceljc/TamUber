@@ -16,8 +16,15 @@ class UsersController < ApplicationController
     #   end
     # end
     
+    now = Time.now
+    past_array = car_info['time'].split('_')
+    past = Time.new(past_array[0], past_array[1], past_array[2], past_array[3], past_array[4])
+    diff = now - past
+    @diff_time = "Hour:%d Minute:%d Second:%d" % [diff / 3600 % 24, diff / 60 % 60, diff % 60]
+
+    
     @vehicle_stats = {:location => car_info['LLA'], :time => car_info['time'], :tire_pressure => car_info['tire pressure'], :battery_level => car_info['battery'], :lidar_status => car_info['lidar status']}
-    return @user, @vehicle_stats
+    return @user, @vehicle_stats, @time_diff
   end
 
   def new
