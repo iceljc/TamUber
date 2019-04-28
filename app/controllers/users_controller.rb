@@ -12,18 +12,11 @@ class UsersController < ApplicationController
     
     data.each do |key, value|
       if value.is_a?(Integer)
-        value = value.to_s
+        data[key] = value.to_s
       end
     end
-      
     
-    if data['lidar status'] == 1
-      lidar_status = 'Online'
-    else
-      lidar_status = 'Offline'
-    end
-    
-    @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => lidar_status}
+    @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => data['lidar status']}
     return @user, @vehicle_stats
   end
 
