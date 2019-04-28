@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     # end
     
     # @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => lidar_status}
-    @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
+    @vehicle_stats = {:tire_pressure => 123, :battery_level => "70%", :lidar_status => "Ok"}
     return @user, @vehicle_stats
   end
 
