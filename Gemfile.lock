@@ -319,6 +319,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   js_assets
+  json
   listen (>= 3.0.5, < 3.2)
   mini_backtrace (= 0.1.3)
   minitest-reporters (= 1.0.5)
@@ -344,4 +345,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.17.1
+   1.17.2

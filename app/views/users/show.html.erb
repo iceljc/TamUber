@@ -267,7 +267,7 @@
   jQuery(document).ready(function(){
   console.log("Ready!");
   function update_values(){
-      $('#tire_pressure').html("<%= j (@vehicle_stats[:tire_pressure]) %>");
+      $('#tire_pressure').html("<%= j (@vehicle_stats[tire pressure]) %>");
       $('#battery_level').html("<%= j (@vehicle_stats[:battery_level]) %>");
       $('#lidar_status').html("<%= j (@vehicle_stats[:lidar_status]) %>");
       setTimeout(update_values,5000);

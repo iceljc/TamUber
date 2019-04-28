@@ -1,11 +1,16 @@
-require 'open-uri'
+require 'json'
+require 'net/http'
 
 class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
     # @vehicle_stats =  VehicleStatus.first()
-    @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
+    source = "http://47.218.218.78:8080/car_info.json"
+    rsp = Net::HTTP.get_response(URI.parse(source))
+    data = JSON.parse(rsp.body)
+    @vehicle_stats = {:location => data["LLA"], :time => data["time"] :tire_pressure => data["tire pressure"], :battery_level => data["battery"], :lidar_status => data["lidar status"]}
+    
     return @user,@vehicle_stats
   end
 
