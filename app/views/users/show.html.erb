@@ -279,11 +279,12 @@
                     $('#tire_pressure').html( data1['tire pressure']);
                     $('#battery_level').html( data1['battery']);
                     $('#lidar_status').html( data1['lidar status']);
+                    setTimeout(update_values,3000);
                     }
                     });
             };
             $(document).ready(function(){
-            setInterval(update_values,1000);
+            setTimeout(update_values,3000);
             });
              
             });
