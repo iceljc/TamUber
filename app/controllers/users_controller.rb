@@ -8,15 +8,15 @@ class UsersController < ApplicationController
     # @vehicle_stats =  VehicleStatus.first()
     source = "http://47.218.218.78:8080/car_info.json"
     rsp = Net::HTTP.get_response(URI.parse(source))
-    data = JSON.parse(rsp.body)
+    car_data = JSON.parse(rsp.body)
     
-    data.each do |key, value|
-      if value.is_a?(Integer)
-        data[key] = value.to_s
-      end
-    end
+    # data.each do |key, value|
+    #   if value.is_a?(Integer)
+    #     data[key] = value.to_s
+    #   end
+    # end
     
-    @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => data['lidar status']}
+    @vehicle_stats = {:location => car_data['LLA'], :time => car_data['time'], :tire_pressure => car_data['tire pressure'], :battery_level => car_data['battery'], :lidar_status => car_data['lidar status']}
     return @user, @vehicle_stats
   end
 
