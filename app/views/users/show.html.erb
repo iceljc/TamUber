@@ -185,6 +185,10 @@
     <h2 > Dashboard</h2>
     <table class="table table-striped" >
       <tr>
+        <td>Updated from Last Time</td>
+        <td id="tire_pressure" ><%= @vehicle_stats[:tire_pressure] =%></td>
+      </tr>
+      <tr>
         <td>Tire Pressure</td>
         <td id="tire_pressure" ><%= @vehicle_stats[:tire_pressure] =%></td>
       </tr>
@@ -270,7 +274,8 @@
               var proxy = 'https://cors-anywhere.herokuapp.com/';
               $.ajax({
               url: proxy + 'http://47.218.218.78:8080/car_info.json',
-              success:function(data1) { console.log(data1); 
+              success:function(data1) { console.log(data1);
+                    $('#tire_pressure').html(data1['tire pressure'])
                     $('#tire_pressure').html( data1['tire pressure']);
                     $('#battery_level').html( data1['battery']);
                     $('#lidar_status').html( data1['lidar status']);
