@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # @vehicle_stats =  VehicleStatus.first()
     source = "http://47.218.218.78:8080/car_info.json"
-    rsp = Net::HTTP.get_response(URI.parse(source))
-    data = JSON.parse(rsp.body)
+    # rsp = Net::HTTP.get_response(URI.parse(source))
+    # data = JSON.parse(rsp.body)
     
     # if data['lidar status'] == 1
     #   lidar_status = 'Online'
