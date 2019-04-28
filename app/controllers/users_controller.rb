@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # @vehicle_stats =  VehicleStatus.first()
-    source = "http://47.218.218.78:8080/car_info.json"
+    # source = "http://47.218.218.78:8080/car_info.json"
     # rsp = Net::HTTP.get_response(URI.parse(source))
     # data = JSON.parse(rsp.body)
     
@@ -49,10 +49,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show_stats
-  #   # @vehicle_stats =  VehicleStatus.first()
-  #   @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
-  # end  
+  def show_stats
+    # @vehicle_stats =  VehicleStatus.first()
+    # @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
+  end  
 
 
   private
