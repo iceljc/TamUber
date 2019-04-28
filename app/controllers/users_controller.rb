@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
     
     @vehicle_stats = {:location => car_info['LLA'], :time => car_info['time'], :tire_pressure => car_info['tire pressure'], :battery_level => car_info['battery'], :lidar_status => car_info['lidar status']}
-    return @user, @vehicle_stats, @time_diff
+    return @user, @vehicle_stats, @diff_time
   end
 
   def new
