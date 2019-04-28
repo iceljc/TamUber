@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @vehicle_stats =  VehicleStatus.first()
-    @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
+    @vehicle_stats =  VehicleStatus.first()
+    # @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
     return @user,@vehicle_stats
   end
 
@@ -36,8 +36,8 @@ class UsersController < ApplicationController
   end
 
   def show_stats
-    # @vehicle_stats =  VehicleStatus.first()
-    @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
+    @vehicle_stats =  VehicleStatus.first()
+    # @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
   end  
 
 
