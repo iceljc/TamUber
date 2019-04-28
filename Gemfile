@@ -78,6 +78,7 @@ group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
+  gem 'simplecov', :require => false
 end
 
 
@@ -89,6 +90,5 @@ gem 'js_assets'
 
 group :production do
   gem 'puma', '~> 3.7'
-  # gem 'pg', '~> 0.21' 
 end
 gem 'pg'
