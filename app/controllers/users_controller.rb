@@ -35,9 +35,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show_stats
-  #   # @vehicle_stats =  VehicleStatus.first()
-  # end  
+  def show_stats
+    # @vehicle_stats =  VehicleStatus.first()
+    @vehicle_stats = {"tire_pressure" => 111, "battery_level" => 222, "lidar_status" => 123}
+  end  
 
 
   private
