@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class UsersController < ApplicationController
 
   def show
@@ -35,10 +37,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def show_stats
-    # @vehicle_stats =  VehicleStatus.first()
-    @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
-  end  
+  # def show_stats
+  #   # @vehicle_stats =  VehicleStatus.first()
+  #   @vehicle_stats = {:tire_pressure => "60Pa", :battery_level => "70%", :lidar_status => "Ok"}
+  # end  
 
 
   private
