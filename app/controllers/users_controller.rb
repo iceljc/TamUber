@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @vehicle_stats =  VehicleStatus.first()
+    # @vehicle_stats =  VehicleStatus.first()
+    @vehicle_stats = {"tire_pressure" => 111, "battery_level" => 222, "lidar_status" => 123}
     return @user,@vehicle_stats
   end
 
@@ -34,9 +35,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show_stats
-    @vehicle_stats =  VehicleStatus.first()
-  end  
+  # def show_stats
+  #   # @vehicle_stats =  VehicleStatus.first()
+  # end  
 
 
   private
