@@ -9,11 +9,14 @@ class UsersController < ApplicationController
     source = "http://47.218.218.78:8080/car_info.json"
     rsp = Net::HTTP.get_response(URI.parse(source))
     data = JSON.parse(rsp.body)
-    if data["lidar status"] == 1
-      lidar_status = "Online"
+    
+    if data['lidar status'] == 1
+      lidar_status = 'Online'
     else
-      lidar_status = "Offline"
-    @vehicle_stats = {:location => data["LLA"], :time => data["time"] :tire_pressure => data["tire pressure"], :battery_level => data["battery"], :lidar_status => lidar_status}
+      lidar_status = 'Offline'
+    end
+    
+    @vehicle_stats = {:location => data['LLA'], :time => data['time'], :tire_pressure => data['tire pressure'], :battery_level => data['battery'], :lidar_status => lidar_status}
     
     return @user, @vehicle_stats
   end
