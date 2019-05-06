@@ -7,13 +7,13 @@
 #   pending
 # end
 
-Given /^the account is set up$/ do
+Given(/^the account is set up$/) do
   # Blog.default.update_attributes!({:blog_name => 'Teh Blag',
   #                                 :base_url => 'http://localhost:3000'});
   # Blog.default.save!
-  User.create!({:firstname => 'ricky',
-                :lastname => 'deng',
-                :email => 'deng@gg.com',
+  User.create!({:firstname => 'ccc',
+                :lastname => 'ddd',
+                :email => 'ccc@ddd.com',
                 :password => '123456'})
 end
 
@@ -74,15 +74,6 @@ Then(/^I am on the Signup page$/) do
   visit signup_path
 end
 
-Given /^the account is set up$/ do
-  # Blog.default.update_attributes!({:blog_name => 'Teh Blag',
-  #                                 :base_url => 'http://localhost:3000'});
-  # Blog.default.save!
-  User.create!({:firstname => 'aaa',
-                :lastname => 'bbb',
-                :email => 'aaa@bbb.com',
-                :password => '123456'})
-end
 
 When(/^I am a new, authenticated user$/) do
   lastname = "zhang"
@@ -94,24 +85,24 @@ When(/^I am a new, authenticated user$/) do
 end
 
 
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+When (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
+When (/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
   fill_in(field, :with => value)
 end
 
-When /^(?:|I )follow "([^"]*)"$/ do |link|
+When (/^(?:|I )follow "([^"]*)"$/) do |link|
   click_link(link)
 end
 
-When /^(?:|I )press "([^"]*)"$/ do |button|
+When (/^(?:|I )press "([^"]*)"$/) do |button|
   click_button(button)
 end
 
 
-Then /^(?:|I )should see "([^"]*)"$/ do |text|
+Then (/^(?:|I )should see "([^"]*)"$/) do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else
@@ -119,7 +110,7 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
+Then (/^(?:|I )should see \/([^\/]*)\/$/) do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should
@@ -130,7 +121,7 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
 end
 
 
-Then /^(?:|I )should not see "([^"]*)"$/ do |text|
+Then (/^(?:|I )should not see "([^"]*)"$/) do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
   else
@@ -138,7 +129,7 @@ Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
+Then (/^(?:|I )should not see \/([^\/]*)\/$/) do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should

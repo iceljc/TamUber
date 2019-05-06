@@ -28,8 +28,8 @@ Scenario: Signup when password not matched
   Then I should see "Sign up now"
   And I follow "Sign up now!"
   And I should be on the Signup page
-  When I fill in "Firstname" with "wenjie"
-  And I fill in "Lastname" with "zhang"
+  When I fill in "Firstname" with "aaa"
+  And I fill in "Lastname" with "bbb"
   And I fill in "Email" with "test@test.com"
   And I fill in "Password" with "passtest123"
   And I fill in "Confirmation" with "test123pass"
@@ -41,7 +41,7 @@ Scenario: Signup with existing email
   When I am on the Signup page
   And I fill in "Firstname" with "ccc"
   And I fill in "Lastname" with "ddd"
-  And I fill in "Email" with "aaa@bbb.com"
+  And I fill in "Email" with "ccc@ddd.com"
   And I fill in "Password" with "test123pass"
   And I fill in "Confirmation" with "test123pass"
   And I press "Create my account"
@@ -51,7 +51,7 @@ Scenario: Signup with existing email
 Scenario: Signin with Valid Credentials
   Given the account is set up
   When I am on the Signin page
-  And I fill in "Email" with "aaa@bbb.com"
+  And I fill in "Email" with "ccc@ddd.com"
   And I fill in "Password" with "123456"
   And I press "Log in"
   Then I should be on the checklist page
@@ -71,19 +71,28 @@ Scenario: Forgot Password Email
   When I am on the Signin page
   And I follow "Forgot Password"
   Then I should be on the Password Reset page
-  When I fill in "Email" with "aaa@bbb.com"
+  When I fill in "Email" with "ccc@ddd.com"
   And I press "Submit"
   Then I go to the homepage
 
 
-Scenario: Forgot Password Email with wrong email
+Scenario: Forget Password and input wrong email
   Given the account is set up
   When I am on the Signin page
   And I follow "Forgot Password"
   Then I should be on the Password Reset page
-  When I fill in "Email" with "ccc@ddd.com"
+  When I fill in "Email" with "eee@fff.com"
   And I press "Submit"
   Then I should see "Email address not found"
+  
+Scenario: Forget Password and input no email
+  Given the account is set up
+  When I am on the Signin page
+  And I follow "Forgot Password"
+  Then I should be on the Password Reset page
+  And I press "Submit"
+  Then I should see "Email address not found"
+
 
 Scenario: check the navigation bar
   Given I am on the homepage
